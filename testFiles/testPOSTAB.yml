@@ -1,0 +1,9 @@
+method: POST
+body:
+  entry:
+    - messaging:
+      - sender:
+          id: 'YOUR_SENDER_ID'
+        postback:
+          payload: 'A_STRING_ACTION'
+      time: 1496103312732

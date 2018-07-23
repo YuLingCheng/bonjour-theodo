@@ -1,0 +1,24 @@
+service: bonjour-theodo
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+  stage: dev
+  region: eu-west-2
+
+functions:
+  chatbot:
+    handler: functions/chatbot/handler.chatbot
+    environment:
+      FB_APP_TOKEN: b43c9289-f3a7-4ce7-a9ab-b511e4ff5c94
+      FB_PAGE_ACCESS_TOKEN: EAAHv9RkFk7QBAOBZAG1LPqIFGDcyyssHu1ZC3FKG7dPQeJfiko6H2XUTUuCX67BqywHqpCIjON6OqH9UHhzzI857gOqr1P21uqObTcGDdTMGnC2SUlroZC23vGXmz8iLdVJd1cmzOyb4o8pHLYw6hEjH53qMaWRH4vld59lXAZDZD
+    events:
+      - http:
+          path: chatbot
+          method: GET
+          integration: lambda
+      - http:
+          path: chatbot
+          method: POST
+          integration: lambda

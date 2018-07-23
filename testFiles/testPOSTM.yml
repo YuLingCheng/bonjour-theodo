@@ -1,0 +1,9 @@
+method: POST
+body:
+  entry:
+    - messaging:
+      - sender:
+          id: 'YOUR_SENDER_ID'
+        message:
+          text: 'SOME_TEXT'
+      time: 1496103312732

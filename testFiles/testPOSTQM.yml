@@ -1,0 +1,10 @@
+method: POST
+body:
+  entry:
+    - messaging:
+      - sender:
+          id: 'YOUR_SENDER_ID'
+        message:
+          quick_reply:
+            payload: 'A_STRING_ACTION'
+      time: 1496103312732
