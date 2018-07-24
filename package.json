@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "axios": "^0.16.2"
+    "axios": "^0.16.2",
+    "mongojs": "^2.6.0"
   },
   "name": "bonjour-theodo"
 }

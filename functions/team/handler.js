@@ -1,5 +1,8 @@
 'use strict';
 
+const normalizer = require('./services/normalizer');
+const databaseManager = require('./services/databaseManager');
+
 module.exports.teamManager = (event, context, callback) => {
   // const cardsApi = `https://api.trello.com/1/boards/${process.env.TRELLO_CONTACT_BOARD_ID}/cards`;
   const cardsApi = `https://api.trello.com/1/lists/${process.env.THEODO_LIST_ID}/cards`;
@@ -27,9 +30,11 @@ module.exports.teamManager = (event, context, callback) => {
   }
   const encodedParameters = Object.keys(queryParameters).map(key => `${key}=${encodeURIComponent(queryParameters[key])}`).join('&');
   const url = `${cardsApi}?${encodedParameters}`;
-  console.log(url);
   const cards = fetch(url)
     .then(response => response.json())
-    .then(cards => console.log(cards))
+    .then(cards => {
+      const people = normalizer.normalizeTrelloCards(cards);
+      databaseManager.insertPeople(people);
+    })
     .catch(error => console.error(error));
 };

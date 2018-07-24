@@ -7,6 +7,13 @@ provider:
   stage: dev
   region: eu-west-2
 
+  environment:
+    MONGO_USER: yulingc
+    MONGO_PASSWORD: bonjourtheodo18
+    MONGO_DB_NAME: bonjourtheodo
+    MONGO_HOST: ds247061.mlab.com
+    MONGO_PORT: 47061
+
 functions:
   chatbot:
     handler: functions/chatbot/handler.chatbot
