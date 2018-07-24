@@ -1,5 +1,8 @@
 service: bonjour-theodo
 
+custom:
+  PEOPLE_SOURCING_RATE: 7
+
 provider:
   name: aws
   runtime: nodejs8.10
@@ -32,9 +35,10 @@ functions:
   teamManager:
     handler: functions/team/handler.teamManager
     event:
-      - schedule: rate(7 days)
+      - schedule: rate(${self:custom.PEOPLE_SOURCING_RATE} days)
     environment:
       TRELLO_API_KEY: 85784fbaa1ea02a3177ec5a7a2ec8574
       TRELLO_API_TOKEN: 8cb3f786cb2e7cbe05b89207422b8c88903f0052c70b06aaea5a2d18fad770b3
       TRELLO_CONTACT_BOARD_ID: JLBMh7wp
       THEODO_LIST_ID: 586d6013f8b9fae261791916
+      PEOPLE_SOURCING_RATE: ${self:custom.PEOPLE_SOURCING_RATE}

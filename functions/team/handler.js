@@ -16,8 +16,8 @@ module.exports.teamManager = (event, context, callback) => {
 
   // get date since the last update
   const today = new Date();
-  const oneWeekAgo = new Date().setDate(today.getDate()-7);
-  const lastUpdate = new Date(oneWeekAgo);
+  const updateRate = new Date().setDate(today.getDate() - process.env.PEOPLE_SOURCING_RATE);
+  const lastUpdate = new Date(updateRate);
   const since = lastUpdate.toISOString();
 
   const queryParameters = {
