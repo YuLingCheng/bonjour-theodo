@@ -1,4 +1,4 @@
 method: GET
 query:
-  hub.verify_token: REPLACE_BY_YOUR_APP_TOKEN_OR_ANYTHING
+  hub.verify_token: b43c9289-f3a7-4ce7-a9ab-b511e4ff5c94
   hub.challenge: 123456
